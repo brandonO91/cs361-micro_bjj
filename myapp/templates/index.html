@@ -7,6 +7,20 @@
 </head>
 <body>
     <h1>hello world</h1>
+    <form method="POST">
+        {{template_form.hidden_tag()}}
+        <p>
+            {{template_form.userName.label}}
+            {{template_form.userName()}}
+        </p>
+        <p>
+            {{template_form.password.label}}
+            {{template_form.password()}}
+        </p>
+        <p>
+           {{template_form.submit()}} 
+        </p>
+    </form>
     
 </body>
 </html>
