@@ -8,4 +8,4 @@ app.config['SECRET_KEY'] = 'mysecret'
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    return "hello world"
+    return render_template('index.html')
