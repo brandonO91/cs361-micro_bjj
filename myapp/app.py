@@ -23,10 +23,10 @@ class NewJujiUser(FlaskForm):
 def index():
     return render_template('index.html', template_form=LogInForm())
 
-# if there is no user in DB
+# if there is no user in DB - use microservice
 @app.route('/newUser', methods=["GET","POST"])
 def createJuji():
-    return 'Creating new jiujitiero'
+    return render_template('newUser.html', template_form = NewJujiUser())
 
 # this will be first page a user goes to after logging in
 @app.route('/technique/<int:user_id>', methods=["GET", "POST"])
