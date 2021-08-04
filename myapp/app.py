@@ -12,6 +12,12 @@ class LogInForm(FlaskForm):
     password = PasswordField("Password")
     submit = SubmitField('Submit User')
 
+class NewJujiUser(FlaskForm):
+    userName = StringField("User Name")
+    password = PasswordField("Password")
+    check_password = PasswordField("Retype Password")
+    submit = SubmitField('Submit Account Information')
+
 # login page - use microservice
 @app.route('/', methods=["GET", "POST"])
 def index():
