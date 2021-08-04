@@ -15,3 +15,7 @@ class LogInForm(FlaskForm):
 @app.route('/', methods=["GET", "POST"])
 def index():
     return render_template('index.html', template_form=LogInForm())
+
+@app.route('/<int:user_id/technique', methods=["GET", "POST"])
+def technique():
+    return f'User {user_id} techniques'
