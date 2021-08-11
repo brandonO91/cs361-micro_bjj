@@ -2,10 +2,22 @@ from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mysecret'
+
+app.config['SQLACHEMY_DATABASE_URI'] = 'sqlite:///myDB.db'
+app.config['SQLAlchemy_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+# personal use database for techniques
+class Technique(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    technique_name = db.Column(db.String(50), index = True, unique = False)
+    user_name = db.Column(db.String(50), index = True, unique = False)
+
 
 class LogInForm(FlaskForm):
     userName = StringField("User Name")
